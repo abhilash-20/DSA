@@ -29,6 +29,7 @@ void dequeue()
     }
     else if (front == rear)
     {
+        printf("The popped element is %d",queue[front]);
         front = rear = -1;
     }
     else

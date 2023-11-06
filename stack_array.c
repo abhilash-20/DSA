@@ -14,8 +14,8 @@ void push()
     }
     else
     {
-        top++;
-        stacks[top]=data;
+        //top++;
+        stacks[++top]=data;
         printf("%d is pushed into the stack.",data);
         printf("\n");
     }
@@ -29,8 +29,8 @@ void pop()
     }
     else
     {
-        item=stacks[top];
-        top--;
+        item=stacks[top--];
+        //top--;
         printf("The item popped is:%d",item);
         printf("\n");
     }
