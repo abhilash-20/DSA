@@ -23,10 +23,23 @@ struct node
     newnode->right=create();
     return newnode;
  }
+ void display(struct node *root, int level)
+{
+    int i;
+    if(root == 0)
+        return;
+    display(root->right, level + 1);
+    printf("\n");
+    for(i = 0; i < level; i++)
+        printf("    ");
+    printf("%d\n", root->data);
+    display(root->left, level + 1);
+}
 void main()
 {
     int x;
     struct node* root;
     root=0;
     root=create();
+    display(root, 0);
 }
