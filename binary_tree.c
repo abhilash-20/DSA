@@ -39,6 +39,27 @@ struct node *find(struct node *root,int key)
     }
     return root;
 }
+
+int isBST(struct node* root)
+{
+    if(root==0)
+    {
+        return 1;
+    }
+    if(root->left!=0 && root->left->data>root->data)
+    {
+        return 0;
+    }
+    if(root->right!=0 && root->right->data<root->data)
+    {
+        return 0;
+    }
+    if(!isBST(root->left) || !isBST(root->right))
+    {
+        return 0;
+    }
+    return 1;
+}
 void display(struct node *root, int level)
 {
     int i;
@@ -88,7 +109,7 @@ void postorder(struct node *root)
 }
 void main()
 {
-    int key;
+    int key,flag;
     struct node *root,*temp;
     root = 0;
     root = create();
@@ -99,7 +120,7 @@ void main()
     preorder(root);
     printf("\nPostorder traversal is: ");
     postorder(root);
-    printf("\n Enter the element you want to search in the BST: ");
+    /*printf("\n Enter the element you want to search in the BST: ");
     scanf("%d ",&key);
     if(find(root,key)==0)
     {
@@ -108,6 +129,15 @@ void main()
     else 
     {
         printf("%d found",key);
+    }*/
+    flag=isBST(root);
+    if(flag==1)
+    {
+        printf("\nIts a BST");
+    }
+    else
+    {
+        printf("\nIts not a BST");
     }
     return ;
 }
