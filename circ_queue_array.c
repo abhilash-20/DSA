@@ -10,6 +10,7 @@ void enqueue(int x)
     {
         front=rear=0;
         queue[rear]=x;
+        printf("%d has been enqueued.",x);
     }
     else if((rear+1)%N==front)
     {
@@ -19,6 +20,7 @@ void enqueue(int x)
     {
         rear=(rear+1)%N;
         queue[rear]=x;
+        printf("%d has been enqueued.",x);
     }
 }
 
@@ -26,7 +28,7 @@ void dequeue()
 {
     if(front==-1 && rear==-1)
     {
-        printf("empty");
+        printf("Queue is empty.");
     }
     else if(front==rear)
     {
@@ -35,13 +37,14 @@ void dequeue()
     }
     else 
     {
-        printf("%d ",queue[front]);
+        printf("%d has been dequeued.",queue[front]);
         front=(front+1)%N;
     }
 }
 
 void display()
 {
+    printf("The present queue is: ");
     int i=front;
     while(i!=rear)
     {
@@ -60,6 +63,8 @@ int main()
     enqueue(8);
     printf("\n");
     enqueue(20);
+    printf("\n");
+    display();
     printf("\n");
     dequeue();
     printf("\n");
