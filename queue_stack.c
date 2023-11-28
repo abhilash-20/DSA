@@ -8,51 +8,7 @@ int s2[N];
 int top1 = -1;
 int top2 = -1;
 int count = 0;
-// write the enqueue operation
-void enqueue()
-{
-    int data;
-    if (top1 == N - 1)
-    {
-        printf("overflow\n");
-    }
-    else
-    {
-        printf("Enter the data: ");
-        scanf("%d", &data);
-        push1(data);
-        count++;
-    }
-}
-// write the dequeue operation for the stack
-void dequeue()
-{
-    int i;
-    int a;
-    int b;
-    int x;
-    if (top1 == -1)
-    {
-        printf("the queue is empty\n");
-    }
-    else
-    {
-        for (i = 0; i < count; i++)
-        {
-            a = pop1();
-            push2(a);
-        }
-        b = pop2();
-        printf("the dequeued element is : %d\n", b);
-        count--;
-        for (i = 0; i < count; i++)
-        {
-            x = pop2();
-            push1(x);
-        }
-    }
-}
-// write the pop operation
+//write the pop operation
 int pop1()
 {
 
@@ -89,6 +45,51 @@ void push1(int a)
 
         top1++;
         s1[top1] = a;
+    }
+}
+// write the enqueue operation
+
+void enqueue()
+{
+    int data;
+    if (top1 == N - 1)
+    {
+        printf("overflow\n");
+    }
+    else
+    {
+        printf("Enter the data: ");
+        scanf("%d", &data);
+        push1(data);
+        count++;
+    }
+}
+// write the dequeue operation for the queue
+void dequeue()
+{
+    int i;
+    int a;
+    int b;
+    int x;
+    if (top1 == -1)
+    {
+        printf("the queue is empty\n");
+    }
+    else
+    {
+        for (i = 0; i < count; i++)
+        {
+            a = pop1();
+            push2(a);
+        }
+        b = pop2();// like it's getting dequeued from queue.
+        printf("the dequeued element is : %d\n", b);
+        count--;
+        for (i = 0; i < count; i++)
+        {
+            x = pop2();
+            push1(x);
+        }
     }
 }
 
