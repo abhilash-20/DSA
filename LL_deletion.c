@@ -113,9 +113,9 @@ int main()
 {
     create();
     display();
-    //printf("%d ", length());
-     delBegin();
-     delEnd();
-     delPos();
+    // printf("%d ", length());
+    delBegin();
+    delEnd();
+    delPos();
     return 0;
 }
